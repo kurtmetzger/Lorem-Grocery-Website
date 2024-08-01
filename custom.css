@@ -1,0 +1,202 @@
+:root {
+    --Red-CMYK: #ee2e31;
+    --Rich-black: #071e22;
+    --Viridian: #95d3c6;
+    --Skobeloff: #1D7874;
+    --Baby-powder: #fffffc;
+  }
+
+.navbar-brand{
+    font-family: Lobster;
+    font-style: italic;
+    color: var(--Red-CMYK);
+    font-size: 54px;
+    margin: 0px;
+}
+
+
+.navbar-light{
+    color: var(--Rich-black);
+    background-color: var(--Skobeloff);
+}
+
+.navbar-light a{
+    color: var(--Rich-black);
+}
+
+.btn-outline-success:hover{
+    background-color: #95d3c6;
+}
+
+body {
+    background-color: var(--Baby-powder);
+    color: var(--Rich-black);
+    font-family: Roboto;
+    margin-bottom: 0px;
+}
+
+.search-body-content-container, .deals-content-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.deals-content-container{
+    margin: 32px 10vw;
+}
+
+.search-sidebar, .deals-preview{
+    background-color: var(--Viridian);
+    color: var(--Rich-black);
+    padding: 16px;
+    flex-basis: 20rem;
+    flex-grow: 1;
+}
+
+.search-sidebar li{
+    list-style: none;
+}
+
+.search-results-container, .deals-container{
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 50%;
+}
+
+.deals-container{
+    background-color: var(--Rich-black);
+}
+
+.item-card-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 32px;
+    justify-content: center;
+}
+
+.card{
+    margin: 16px;
+    box-shadow: 2px 2px 3px #071e22;
+}
+
+.card-body a {
+    background-color: var(--Red-CMYK);
+    border: none;
+}
+
+.deals-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.deals-card{
+    display: flex;
+    background-color: #1D7874;
+    max-height: 300px;
+    text-align: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Lobster;
+    margin: 4px;
+}
+
+.deals-card img{
+    max-height: 200px;
+    max-width: 100%;
+    object-fit: cover;
+    color: var(--Baby-powder);
+}
+
+.deals-card-price{
+    background-color: var(--Baby-powder);
+    border-style: dashed;
+    border-color: #071e22;
+    color: #ee2e31;
+    font-weight: bold;
+    font-family: Lobster;
+    margin: 4px;
+}
+
+.footer{
+    margin-bottom: 0px;
+    padding: 16px;
+    text-align: center;
+    background-color: var(--Rich-black);
+    color: var(--Baby-powder);
+}
+
+.footer-links-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 16px;
+    color: var(--Rich-black);;
+    flex-wrap: wrap;
+}
+
+.footer h4{
+    margin-bottom: 0px; 
+    color: var(--Rich-black);
+}
+
+.footer-links ul{
+    padding-left: 8px;
+}
+
+.footer li{
+    list-style-type: none;
+}
+
+.footer li a{
+    text-decoration: none;
+}
+
+.footer-links{
+    background-color: var(--Viridian);
+    color: var(--Baby-powder);
+    text-align: left;
+    margin: 16px;
+    width: 200px;
+    padding: 16px;
+    border-radius: 16px;
+}
+
+.socials-container svg{
+    margin: 8px;
+}
+
+input[type=radio], input[type=checkbox]{
+    accent-color: var(--Red-CMYK);
+}
+
+input[type=text], input[type=search]{
+    accent-color: var(--Viridian);
+}
+
+
+button, input[type=submit], .btn{
+    background-color: var(--Skobeloff);
+    color: var(--Baby-powder);
+    font-family: 'Lobster', sans-serif;
+    border-color: var(--Viridian);
+}
+
+.success{
+    background-color: var(--Viridian);
+    color: var(--Rich-black);
+}
+
+.warning{
+    background-color: var(--Rich-black);
+    color: var(--Baby-powder)
+}
+
+.error{
+    background-color: var(--Red-CMYK);
+    color: var(--Baby-powder);
+    font-weight: bold;
+}
