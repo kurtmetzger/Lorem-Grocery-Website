@@ -11,47 +11,73 @@
     <link rel="stylesheet/less" type="text/css" href="custom.less">
     <script src="https://cdn.jsdelivr.net/npm/less" ></script>
     <title>Lorem Grocery - Catering</title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="mustache.js"></script>
+
+    <script id="template" type="x-tmpl-mustache">
+      {{#item}}
+        <div class="card" style="width: 18rem;">
+          <img src={{image}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">{{name}}</h3>
+            <h5>${{price}}</h5>
+            <p class="card-text">{{description}}</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      {{/item}}
+    </script>
+
     <script>
-      //creates cards from one template. can be reformatted to create card from data in a database by passing variables into the function.
-      function fillSearchResults(){
-        var target = document.getElementById("item-card-container")
+      //creates cards from one template. can be reformatted to create card from data in a database by passing variables into the functio
+      $(document).ready(function(){
+        var template = $("#template").html();
+        Mustache.parse(template);
 
-        for(var i = 0; i < 6; i++){
-          var searchcard = document.createElement("div");
-          searchcard.classList.add("card");
-
-          var img = document.createElement("img");
-          img.src = "images/bananas.jpg"
-
-          img.classList.add("card-img-top");
-          searchcard.appendChild(img);
-
-          var cardbody = document.createElement("div");
-          cardbody.classList.add("card-body");
-          searchcard.appendChild(cardbody);
-
-          var cardtitle = document.createElement("h3");
-          cardtitle.classList.add("card-title");
-          cardtitle.innerText = "Bananas";
-          cardbody.appendChild(cardtitle);
-
-          var cardprice = document.createElement("h5");
-          cardprice.innerText = "$1.00";
-          cardbody.appendChild(cardprice);
-
-          var cardtext = document.createElement("p");
-          cardtext.innerText = "I hope you know what a banana is by now";
-          cardbody.appendChild(cardtext);
-
-          var addToCartButton = document.createElement("a");
-          addToCartButton.classList.add("btn", "btn-primary");
-          addToCartButton.innerText = "Add to Cart";
-          cardbody.appendChild(addToCartButton);
-
-          target.appendChild(searchcard);
-          console.log("card created!");
-        }
-      }
+        var rendered = Mustache.render(template, {
+          item: [
+            {
+              name: "Banana",
+              image: "images/bananas.jpg",
+              price: 1.99,
+              description: "I hope you know what a banana is by now",
+            },
+            {
+              name: "Banana",
+              image: "images/bananas.jpg",
+              price: 1.99,
+              description: "I hope you know what a banana is by now",
+            },
+            {
+              name: "Banana",
+              image: "images/bananas.jpg",
+              price: 1.99,
+              description: "I hope you know what a banana is by now",
+            },
+            {
+              name: "Banana",
+              image: "images/bananas.jpg",
+              price: 1.99,
+              description: "I hope you know what a banana is by now",
+            },
+            {
+              name: "Banana",
+              image: "images/bananas.jpg",
+              price: 1.99,
+              description: "I hope you know what a banana is by now",
+            },
+            {
+              name: "Banana",
+              image: "images/bananas.jpg",
+              price: 1.99,
+              description: "I hope you know what a banana is by now",
+            }
+          ],
+          show: true
+        })
+        $("#item-card-container").html(rendered);
+      });
+        
     </script>
 </head>
 <body onload="fillSearchResults()">
