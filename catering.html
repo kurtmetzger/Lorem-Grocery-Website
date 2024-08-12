@@ -8,10 +8,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="custom.less">
+    <link rel="stylesheet/less" type="text/css" href="custom.less">
+    <script src="https://cdn.jsdelivr.net/npm/less" ></script>
     <title>Lorem Grocery - Catering</title>
+    <script>
+      //creates cards from one template. can be reformatted to create card from data in a database by passing variables into the function.
+      function fillSearchResults(){
+        var target = document.getElementById("item-card-container")
+
+        for(var i = 0; i < 6; i++){
+          var searchcard = document.createElement("div");
+          searchcard.classList.add("card");
+
+          var img = document.createElement("img");
+          img.src = "images/bananas.jpg"
+
+          img.classList.add("card-img-top");
+          searchcard.appendChild(img);
+
+          var cardbody = document.createElement("div");
+          cardbody.classList.add("card-body");
+          searchcard.appendChild(cardbody);
+
+          var cardtitle = document.createElement("h3");
+          cardtitle.classList.add("card-title");
+          cardtitle.innerText = "Bananas";
+          cardbody.appendChild(cardtitle);
+
+          var cardprice = document.createElement("h5");
+          cardprice.innerText = "$1.00";
+          cardbody.appendChild(cardprice);
+
+          var cardtext = document.createElement("p");
+          cardtext.innerText = "I hope you know what a banana is by now";
+          cardbody.appendChild(cardtext);
+
+          var addToCartButton = document.createElement("a");
+          addToCartButton.classList.add("btn", "btn-primary");
+          addToCartButton.innerText = "Add to Cart";
+          cardbody.appendChild(addToCartButton);
+
+          target.appendChild(searchcard);
+          console.log("card created!");
+        }
+      }
+    </script>
 </head>
-<body>
+<body onload="fillSearchResults()">
     <!--Header with Logo -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #071e22; color: #fffffc">
         <div class="container-fluid">
@@ -94,61 +137,8 @@
             <button style="background-color:#ee2e31; border-color:#ee2e31; border-radius: .25rem; font-size: 20px; margin-top: 8px; margin-bottom: 8px;">Finalize Order</button>
         </nav>
           <h3 style="margin: 32px; color: rgb(72, 72, 72)">Showing results for "banana"...</h3>
-          <div class="item-card-container">
-              <div class="card" style="width: 18rem;">
-                <img src="images/bananas.jpg" class="card-img-top" alt="bananas">
-                <div class="card-body">
-                  <h3 class="card-title">Bananas</h3>
-                  <h5>$1.00</h5>
-                  <p class="card-text">I hope you know what a banana is by now</p>
-                  <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="images/bananas.jpg" class="card-img-top" alt="bananas">
-                <div class="card-body">
-                  <h3 class="card-title">Bananas</h3>
-                  <h5>$1.00</h5>
-                  <p class="card-text">I hope you know what a banana is by now</p>
-                  <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="images/bananas.jpg" class="card-img-top" alt="bananas">
-                <div class="card-body">
-                  <h3 class="card-title">Bananas</h3>
-                  <h5>$1.00</h5>
-                  <p class="card-text">I hope you know what a banana is by now</p>
-                  <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="images/bananas.jpg" class="card-img-top" alt="bananas">
-                <div class="card-body">
-                  <h3 class="card-title">Bananas</h3>
-                  <h5>$1.00</h5>
-                  <p class="card-text">I hope you know what a banana is by now</p>
-                  <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="images/bananas.jpg" class="card-img-top" alt="bananas">
-                <div class="card-body">
-                  <h3 class="card-title">Bananas</h3>
-                  <h5>$1.00</h5>
-                  <p class="card-text">I hope you know what a banana is by now</p>
-                  <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="images/bananas.jpg" class="card-img-top" alt="bananas">
-                <div class="card-body">
-                  <h3 class="card-title">Bananas</h3>
-                  <h5>$1.00</h5>
-                  <p class="card-text">I hope you know what a banana is by now</p>
-                  <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-              </div>
+          <div class="item-card-container" id="item-card-container">
+              <!--Filled with cards via javascript-->
           </div>
         </div>
       </div>
