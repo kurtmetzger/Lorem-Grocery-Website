@@ -22,7 +22,7 @@
             <h3 class="card-title">{{name}}</h3>
             <h5>${{price}}</h5>
             <p class="card-text">{{description}}</p>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
+            <a onclick="addToCart(this)" class="btn btn-primary">Add to Cart</a>
           </div>
         </div>
       {{/item}}
@@ -77,8 +77,22 @@
         })
         $("#item-card-container").html(rendered);
       });
-        
+    
+    function addToCart(itemButton) {
+        var x = itemButton;
+        if (x.innerHTML === "Add to Cart") {
+          x.innerHTML = "Remove from Cart";
+          x.style.backgroundColor="#071e22";
+          x.style.color="#fffffc";
+        } else {
+          x.innerHTML = "Add to Cart";
+          x.style.backgroundColor="#ee2e31";
+          x.style.color="#fffffc";
+        }
+      } 
     </script>
+
+    
 </head>
 <body onload="fillSearchResults()">
     <!--Header with Logo -->
@@ -183,7 +197,7 @@
           <div class="footer-links">
             <h4>Departments:</h4>
             <ul>
-              <li><a href="#">Bakery</a></li>
+              <li><a href="bakery.html">Bakery</a></li>
               <li><a href="#">Deli</a></li>
               <li><a href="#">Seafood</a></li>
               <li><a href="#">Floral</a></li>
